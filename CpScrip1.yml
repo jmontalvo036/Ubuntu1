@@ -1,0 +1,8 @@
+---
+- name: Copiar archivo al servidor remoto
+  hosts: myservers
+  tasks:
+    - name: Copiar el archivo local al servidor remoto
+      copy:
+        src: /ruta/al/archivo/local.txt
+        dest: /ruta/en/el/servidor/remoto.txt
