@@ -1,25 +1,17 @@
-ame: Deployment Pipeline
-
 on:
-    push:
-        branches:
-            - main
+  push
 
-           
+name: ci
+
 jobs:
-    deploy: 
-      runs-on: ubuntu-latest
-      steps:
-        - uses: actions/checkout@v4
-          with:
-            fetch-depth: 0
+  ci:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: docker-practice/actions-setup-docker@master
+      timeout-minutes: 12
+    - run: |
+        set -x
 
+        docker version
 
-uses: docker-practice/actions-setup-docker@master
-timeout-minutes: 12
-- run: |
-  set -x
-
-  docker version
-
-  docker run --rm hello-world
+        docker run --rm hello-world
